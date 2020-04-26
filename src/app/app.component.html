@@ -1,3 +1,10 @@
 <div id="map" class="map"></div>
 
+<div class="navigator">
+  <div class="title">
+    Load your GPX file
+  </div>
+  <input type="file" (change)="onFileLoaded($event)" />
+</div>
+
 <router-outlet></router-outlet>
