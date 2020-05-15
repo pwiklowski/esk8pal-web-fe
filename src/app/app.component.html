@@ -1,10 +1,20 @@
-<div id="map" class="map"></div>
-
-<div class="navigator">
-  <div class="title">
-    Load your GPX file
-  </div>
-  <input type="file" (change)="onFileLoaded($event)" />
+<div class="page" *ngIf="!authorized">
+  <google-signin></google-signin>
 </div>
 
-<router-outlet></router-outlet>
+<div class="page" *ngIf="authorized">
+  <div id="map" class="map"></div>
+
+  <div class="navigator">
+    <div class="nav-top">
+      <img class="nav-avatar" src="{{ profile?.getImageUrl() }}" />
+      <div class="nav-username">{{ profile?.getName() }}</div>
+    </div>
+    <div class="title">
+      Load your GPX file
+    </div>
+    <input type="file" (change)="onFileLoaded($event)" />
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

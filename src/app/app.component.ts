@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, NgZone } from "@angular/core";
 import * as ol from "openlayers";
+import { AuthService } from "./auth.service";
 
 @Component({
   selector: "app-root",
@@ -11,6 +12,9 @@ export class AppComponent {
 
   latitude: number = 18.5204;
   longitude: number = 73.8567;
+
+  authorized = false;
+  profile: any;
 
   map: ol.Map;
 
@@ -41,7 +45,23 @@ export class AppComponent {
     }),
   };
 
+  constructor(private auth: AuthService, private zone: NgZone) {}
+
   ngOnInit() {
+    this.auth.login.subscribe(async (profile: gapi.auth2.BasicProfile) => {
+      this.zone.run(async () => {
+        console.log("logged", profile);
+        this.profile = profile;
+        this.authorized = true;
+
+        if (this.authorized) {
+          setTimeout(() => this.init(), 0);
+        }
+      });
+    });
+  }
+
+  init() {
     this.map = new ol.Map({
       target: "map",
       layers: [
