@@ -14,6 +14,12 @@
       Load your GPX file
     </div>
     <input type="file" (change)="onFileLoaded($event)" />
+
+    <div class="title">
+      Upload your GPX file
+    </div>
+    <input type="file" (change)="filesToUploadChanged($event)" />
+    <button (click)="upload()">Upload</button>
   </div>
 
   <router-outlet></router-outlet>

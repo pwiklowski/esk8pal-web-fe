@@ -1,6 +1,7 @@
 import { Component, NgZone } from "@angular/core";
 import * as ol from "openlayers";
 import { AuthService } from "./auth.service";
+import { ApiService } from "./api.service";
 
 @Component({
   selector: "app-root",
@@ -9,6 +10,8 @@ import { AuthService } from "./auth.service";
 })
 export class AppComponent {
   title = "esk8pal";
+
+  fileList: FileList;
 
   latitude: number = 18.5204;
   longitude: number = 73.8567;
@@ -45,7 +48,7 @@ export class AppComponent {
     }),
   };
 
-  constructor(private auth: AuthService, private zone: NgZone) {}
+  constructor(private auth: AuthService, private zone: NgZone, private api: ApiService) {}
 
   ngOnInit() {
     this.auth.login.subscribe(async (profile: gapi.auth2.BasicProfile) => {
@@ -108,6 +111,16 @@ export class AppComponent {
       };
 
       reader.readAsText(fileInput.target.files[0]);
+    }
+  }
+
+  filesToUploadChanged(event) {
+    this.fileList = event.target.files;
+  }
+
+  upload() {
+    for (let index = 0; index < this.fileList.length; index++) {
+      this.api.uploadRide(this.fileList[index]);
     }
   }
 }
