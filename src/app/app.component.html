@@ -20,6 +20,10 @@
     </div>
     <input type="file" (change)="filesToUploadChanged($event)" />
     <button (click)="upload()">Upload</button>
+
+    <div *ngFor="let ride of rides" class="ride">
+      {{ ride.name }}
+    </div>
   </div>
 
   <router-outlet></router-outlet>

@@ -2,6 +2,7 @@ import { Component, NgZone } from "@angular/core";
 import * as ol from "openlayers";
 import { AuthService } from "./auth.service";
 import { ApiService } from "./api.service";
+import Ride from "./models/ride";
 
 @Component({
   selector: "app-root",
@@ -15,6 +16,8 @@ export class AppComponent {
 
   latitude: number = 18.5204;
   longitude: number = 73.8567;
+
+  rides: Array<Ride>;
 
   authorized = false;
   profile: any;
@@ -64,7 +67,7 @@ export class AppComponent {
     });
   }
 
-  init() {
+  async init() {
     this.map = new ol.Map({
       target: "map",
       layers: [
@@ -77,6 +80,8 @@ export class AppComponent {
         zoom: 16,
       }),
     });
+
+    this.rides = await this.api.getRides();
   }
 
   showTrip(data: string) {
