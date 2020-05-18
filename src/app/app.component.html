@@ -21,7 +21,7 @@
     <input type="file" (change)="filesToUploadChanged($event)" />
     <button (click)="upload()">Upload</button>
 
-    <div *ngFor="let ride of rides" class="ride">
+    <div *ngFor="let ride of rides" class="ride" (click)="loadRide(ride._id)">
       {{ ride.name }}
     </div>
   </div>

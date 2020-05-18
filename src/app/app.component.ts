@@ -84,6 +84,30 @@ export class AppComponent {
     this.rides = await this.api.getRides();
   }
 
+  async loadRide(id: string) {
+    const data = await this.api.getRideData(id);
+
+    const source = new ol.source.Vector({
+      format: new ol.format.GPX(),
+    });
+
+    var format = new ol.format.GPX();
+    var features = format.readFeatures(data, {
+      dataProjection: "EPSG:4326",
+      featureProjection: "EPSG:3857",
+    });
+    source.addFeatures(features);
+
+    const trip = new ol.layer.Vector({
+      source,
+      style: (feature) => {
+        return this.style[feature.getGeometry().getType()];
+      },
+    });
+
+    this.map.addLayer(trip);
+  }
+
   showTrip(data: string) {
     const source = new ol.source.Vector({
       format: new ol.format.GPX(),

@@ -14,6 +14,10 @@ export class ApiService {
     return this.http.get(`${this.BASE_URL}/rides`).toPromise() as Promise<Array<Ride>>;
   }
 
+  async getRideData(id) {
+    return this.http.get(`${this.BASE_URL}/rides/${id}/data`, { responseType: "text" }).toPromise();
+  }
+
   async uploadRide(file: File) {
     let data: FormData = new FormData();
     data.append("logfile", file, file.name);
