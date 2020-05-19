@@ -24,6 +24,8 @@ export class AppComponent {
 
   map: ol.Map;
 
+  currentRideLayer = null;
+
   style = {
     Point: new ol.style.Style({
       image: new ol.style.Circle({
@@ -85,6 +87,8 @@ export class AppComponent {
   }
 
   async loadRide(id: string) {
+    this.map.removeLayer(this.currentRideLayer);
+
     const data = await this.api.getRideData(id);
 
     const source = new ol.source.Vector({
@@ -98,14 +102,14 @@ export class AppComponent {
     });
     source.addFeatures(features);
 
-    const trip = new ol.layer.Vector({
+    this.currentRideLayer = new ol.layer.Vector({
       source,
       style: (feature) => {
         return this.style[feature.getGeometry().getType()];
       },
     });
 
-    this.map.addLayer(trip);
+    this.map.addLayer(this.currentRideLayer);
   }
 
   showTrip(data: string) {
