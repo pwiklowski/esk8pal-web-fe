@@ -112,41 +112,6 @@ export class AppComponent {
     this.map.addLayer(this.currentRideLayer);
   }
 
-  showTrip(data: string) {
-    const source = new ol.source.Vector({
-      format: new ol.format.GPX(),
-    });
-
-    var format = new ol.format.GPX();
-    var features = format.readFeatures(data, {
-      dataProjection: "EPSG:4326",
-      featureProjection: "EPSG:3857",
-    });
-    source.addFeatures(features);
-
-    const trip = new ol.layer.Vector({
-      source,
-      style: (feature) => {
-        return this.style[feature.getGeometry().getType()];
-      },
-    });
-
-    this.map.addLayer(trip);
-  }
-
-  onFileLoaded(fileInput: any) {
-    console.log("files", fileInput.target.files);
-    if (fileInput.target.files && fileInput.target.files[0]) {
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        this.showTrip(e.target["result"] as string);
-      };
-
-      reader.readAsText(fileInput.target.files[0]);
-    }
-  }
-
   filesToUploadChanged(event) {
     this.fileList = event.target.files;
   }
