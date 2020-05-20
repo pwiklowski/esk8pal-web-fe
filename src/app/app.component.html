@@ -15,7 +15,8 @@
       Upload your GPX file
     </div>
     <input type="file" (change)="filesToUploadChanged($event)" />
-    <button (click)="upload()">Upload</button>
+    <button (click)="uploadGpx()">Upload GPX</button>
+    <button (click)="uploadCsv()">Upload CSV</button>
 
     <div *ngFor="let ride of rides" class="ride" (click)="loadRide(ride._id)">
       {{ ride.name }}

@@ -116,9 +116,15 @@ export class AppComponent {
     this.fileList = event.target.files;
   }
 
-  upload() {
+  uploadGpx() {
     for (let index = 0; index < this.fileList.length; index++) {
-      this.api.uploadRide(this.fileList[index]);
+      this.api.uploadRideGpx(this.fileList[index]);
+    }
+  }
+
+  uploadCsv() {
+    for (let index = 0; index < this.fileList.length; index++) {
+      this.api.uploadRideCsv(this.fileList[index]);
     }
   }
 }
