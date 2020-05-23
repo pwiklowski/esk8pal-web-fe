@@ -116,15 +116,17 @@ export class AppComponent {
     this.fileList = event.target.files;
   }
 
-  uploadGpx() {
+  async uploadGpx() {
     for (let index = 0; index < this.fileList.length; index++) {
-      this.api.uploadRideGpx(this.fileList[index]);
+      await this.api.uploadRideGpx(this.fileList[index]);
+      this.rides = await this.api.getRides();
     }
   }
 
-  uploadCsv() {
+  async uploadCsv() {
     for (let index = 0; index < this.fileList.length; index++) {
-      this.api.uploadRideCsv(this.fileList[index]);
+      await this.api.uploadRideCsv(this.fileList[index]);
+      this.rides = await this.api.getRides();
     }
   }
 }
