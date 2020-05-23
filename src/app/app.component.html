@@ -19,7 +19,14 @@
     <button (click)="uploadCsv()">Upload CSV</button>
 
     <div *ngFor="let ride of rides" class="ride" (click)="loadRide(ride._id)">
-      {{ ride.name }}
+      <div>{{ ride.fileName }}</div>
+
+      <div>Start: {{ ride.metaData.start }}</div>
+      <div>Time: {{ ride.metaData.tripTime / 1000 }}</div>
+      <div>Distance: {{ ride.metaData.tripDistance }}</div>
+      <div>Energy used: {{ ride.metaData.tripUsedEnergy }}</div>
+      <div>Max speed: {{ ride.metaData.maxSpped }}</div>
+      <div>Max current: {{ ride.metaData.maxCurrent }}</div>
     </div>
   </div>
 
