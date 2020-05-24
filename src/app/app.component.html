@@ -5,14 +5,20 @@
 <div class="page" *ngIf="authorized">
   <app-map></app-map>
 
+  <div class="buttons">
+    <button mat-fab color="primary" [matTooltipPosition]="'left'" matTooltip="Click to upload new ride" (click)="openUploadSheet()">
+      <mat-icon>cloud_upload</mat-icon>
+    </button>
+    <button mat-fab color="primary" [matTooltipPosition]="'left'" matTooltip="Click to select ride to show" (click)="openBottomSheet()">
+      <mat-icon>menu_open</mat-icon>
+    </button>
+  </div>
+
   <div class="navigator">
     <div class="nav-top">
       <img class="nav-avatar" src="{{ profile?.getImageUrl() }}" />
       <div class="nav-username">{{ profile?.getName() }}</div>
     </div>
-
-    <button mat-raised-button (click)="openBottomSheet()">Show ride</button>
-    <button mat-raised-button (click)="openUploadSheet()">Upload file</button>
   </div>
 
   <router-outlet></router-outlet>

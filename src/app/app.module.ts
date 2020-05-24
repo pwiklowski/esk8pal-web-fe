@@ -12,8 +12,11 @@ import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-s
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatListModule } from "@angular/material/list";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { UploadSheetComponent } from './upload-sheet/upload-sheet.component';
-import { MapComponent } from './map/map.component';
+import { UploadSheetComponent } from "./upload-sheet/upload-sheet.component";
+import { MapComponent } from "./map/map.component";
+import { MatButtonModule } from "@angular/material/button";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RideSheetComponent, UploadSheetComponent, MapComponent],
@@ -27,6 +30,9 @@ import { MapComponent } from './map/map.component';
     MatListModule,
     MatBottomSheetModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatIconModule,
   ],
   providers: [
     {
