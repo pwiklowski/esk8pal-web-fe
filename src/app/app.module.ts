@@ -12,9 +12,10 @@ import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-s
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatListModule } from "@angular/material/list";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { UploadSheetComponent } from './upload-sheet/upload-sheet.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RideSheetComponent],
+  declarations: [AppComponent, LoginComponent, RideSheetComponent, UploadSheetComponent],
   entryComponents: [RideSheetComponent],
   imports: [
     BrowserModule,

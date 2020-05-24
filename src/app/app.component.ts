@@ -6,6 +6,7 @@ import Ride from "./models/ride";
 import { RideSheetComponent } from "./ride-sheet/ride-sheet.component";
 import { MatBottomSheet } from "@angular/material/bottom-sheet";
 import { AppService } from "./app.service";
+import { UploadSheetComponent } from "./upload-sheet/upload-sheet.component";
 
 @Component({
   selector: "app-root",
@@ -14,8 +15,6 @@ import { AppService } from "./app.service";
 })
 export class AppComponent {
   title = "esk8pal";
-
-  fileList: FileList;
 
   latitude: number = 18.5204;
   longitude: number = 73.8567;
@@ -64,6 +63,10 @@ export class AppComponent {
 
   openBottomSheet(): void {
     this._bottomSheet.open(RideSheetComponent);
+  }
+
+  openUploadSheet(): void {
+    this._bottomSheet.open(UploadSheetComponent);
   }
 
   ngOnInit() {
@@ -123,21 +126,5 @@ export class AppComponent {
     });
 
     this.map.addLayer(this.currentRideLayer);
-  }
-
-  filesToUploadChanged(event) {
-    this.fileList = event.target.files;
-  }
-
-  async uploadGpx() {
-    for (let index = 0; index < this.fileList.length; index++) {
-      await this.api.uploadRideGpx(this.fileList[index]);
-    }
-  }
-
-  async uploadCsv() {
-    for (let index = 0; index < this.fileList.length; index++) {
-      await this.api.uploadRideCsv(this.fileList[index]);
-    }
   }
 }
