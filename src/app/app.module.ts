@@ -13,9 +13,10 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { MatListModule } from "@angular/material/list";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { UploadSheetComponent } from './upload-sheet/upload-sheet.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RideSheetComponent, UploadSheetComponent],
+  declarations: [AppComponent, LoginComponent, RideSheetComponent, UploadSheetComponent, MapComponent],
   entryComponents: [RideSheetComponent],
   imports: [
     BrowserModule,
