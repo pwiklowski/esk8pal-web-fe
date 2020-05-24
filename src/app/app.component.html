@@ -11,23 +11,14 @@
       <div class="nav-username">{{ profile?.getName() }}</div>
     </div>
 
+    <button mat-raised-button (click)="openBottomSheet()">Open file</button>
+
     <div class="title">
       Upload your GPX file
     </div>
     <input type="file" (change)="filesToUploadChanged($event)" />
     <button (click)="uploadGpx()">Upload GPX</button>
     <button (click)="uploadCsv()">Upload CSV</button>
-
-    <div *ngFor="let ride of rides" class="ride" (click)="loadRide(ride._id)">
-      <div>{{ ride.fileName }}</div>
-
-      <div>Start: {{ ride.metaData.start }}</div>
-      <div>Time: {{ ride.metaData.tripTime / 1000 }}</div>
-      <div>Distance: {{ ride.metaData.tripDistance }}</div>
-      <div>Energy used: {{ ride.metaData.tripUsedEnergy }}</div>
-      <div>Max speed: {{ ride.metaData.maxSpped }}</div>
-      <div>Max current: {{ ride.metaData.maxCurrent }}</div>
-    </div>
   </div>
 
   <router-outlet></router-outlet>

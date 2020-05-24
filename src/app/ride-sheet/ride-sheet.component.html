@@ -1,0 +1,14 @@
+<mat-nav-list>
+  <mat-spinner *ngIf="!rides"></mat-spinner>
+  <mat-list-item *ngFor="let ride of rides" (click)="loadRide(ride._id)">
+    <div mat-line>{{ ride.fileName }}</div>
+
+    <div mat-line>Start: {{ ride.metaData.start }}</div>
+    <div mat-line>Time: {{ ride.metaData.tripTime / 1000 }}</div>
+    <div mat-line>Distance: {{ ride.metaData.tripDistance }}</div>
+    <div mat-line>Energy used: {{ ride.metaData.tripUsedEnergy }}</div>
+    <div mat-line>Max speed: {{ ride.metaData.maxSpped }}</div>
+    <div mat-line>Max current: {{ ride.metaData.maxCurrent }}</div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>

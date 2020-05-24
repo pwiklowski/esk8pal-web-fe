@@ -3,6 +3,9 @@ import * as ol from "openlayers";
 import { AuthService } from "./auth.service";
 import { ApiService } from "./api.service";
 import Ride from "./models/ride";
+import { RideSheetComponent } from "./ride-sheet/ride-sheet.component";
+import { MatBottomSheet } from "@angular/material/bottom-sheet";
+import { AppService } from "./app.service";
 
 @Component({
   selector: "app-root",
@@ -16,8 +19,6 @@ export class AppComponent {
 
   latitude: number = 18.5204;
   longitude: number = 73.8567;
-
-  rides: Array<Ride>;
 
   authorized = false;
   profile: any;
@@ -53,9 +54,23 @@ export class AppComponent {
     }),
   };
 
-  constructor(private auth: AuthService, private zone: NgZone, private api: ApiService) {}
+  constructor(
+    private auth: AuthService,
+    private zone: NgZone,
+    private api: ApiService,
+    private appService: AppService,
+    private _bottomSheet: MatBottomSheet
+  ) {}
+
+  openBottomSheet(): void {
+    this._bottomSheet.open(RideSheetComponent);
+  }
 
   ngOnInit() {
+    this.appService.currentRideId.subscribe((id: string) => {
+      this.loadRide(id);
+    });
+
     this.auth.login.subscribe(async (profile: gapi.auth2.BasicProfile) => {
       this.zone.run(async () => {
         console.log("logged", profile);
@@ -82,8 +97,6 @@ export class AppComponent {
         zoom: 16,
       }),
     });
-
-    this.rides = await this.api.getRides();
   }
 
   async loadRide(id: string) {
@@ -119,14 +132,12 @@ export class AppComponent {
   async uploadGpx() {
     for (let index = 0; index < this.fileList.length; index++) {
       await this.api.uploadRideGpx(this.fileList[index]);
-      this.rides = await this.api.getRides();
     }
   }
 
   async uploadCsv() {
     for (let index = 0; index < this.fileList.length; index++) {
       await this.api.uploadRideCsv(this.fileList[index]);
-      this.rides = await this.api.getRides();
     }
   }
 }
