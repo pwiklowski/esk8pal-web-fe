@@ -17,6 +17,7 @@ import { MapComponent } from "./map/map.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatIconModule } from "@angular/material/icon";
+import { MatGridListModule } from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RideSheetComponent, UploadSheetComponent, MapComponent],
@@ -33,6 +34,7 @@ import { MatIconModule } from "@angular/material/icon";
     MatButtonModule,
     MatTooltipModule,
     MatIconModule,
+    MatListModule,
   ],
   providers: [
     {
