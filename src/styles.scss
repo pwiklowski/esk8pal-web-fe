@@ -1,3 +1,5 @@
+@import "~@angular/material/theming";
+
 html,
 body {
   width: 100%;
@@ -6,3 +8,10 @@ body {
   padding: 0;
   font-family: "Quicksand", sans-serif;
 }
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: "Quicksand, monospace",
+);
+@include angular-material-typography($custom-typography);
