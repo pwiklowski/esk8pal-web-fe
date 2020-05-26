@@ -5,7 +5,7 @@ import { MatBottomSheetRef } from "@angular/material/bottom-sheet";
 @Component({
   selector: "app-upload-sheet",
   templateUrl: "./upload-sheet.component.html",
-  styleUrls: ["./upload-sheet.component.less"],
+  styleUrls: ["./upload-sheet.component.scss"],
 })
 export class UploadSheetComponent {
   fileList: FileList;

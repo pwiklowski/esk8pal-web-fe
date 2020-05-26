@@ -7,7 +7,7 @@ import { AppService } from "../app.service";
 @Component({
   selector: "app-ride-sheet",
   templateUrl: "./ride-sheet.component.html",
-  styleUrls: ["./ride-sheet.component.less"],
+  styleUrls: ["./ride-sheet.component.scss"],
 })
 export class RideSheetComponent {
   constructor(private sheetRef: MatBottomSheetRef<RideSheetComponent>, private api: ApiService, private appService: AppService) {}

@@ -7,7 +7,7 @@ import { UploadSheetComponent } from "./upload-sheet/upload-sheet.component";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.less"],
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
   title = "esk8pal";
