@@ -9,7 +9,8 @@
       <input matInput placeholder="Name" [(ngModel)]="name" />
     </mat-form-field>
     <button mat-icon-button color="warn" (click)="showNameField ? add(name) : (showNameField = true)">
-      <mat-icon>add</mat-icon>
+      <mat-icon *ngIf="!showNameField">add</mat-icon>
+      <mat-icon *ngIf="showNameField">send</mat-icon>
     </button>
   </div>
   <mat-list-item *ngFor="let device of devices">

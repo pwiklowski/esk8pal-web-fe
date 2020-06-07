@@ -25,6 +25,8 @@ export class DevicesComponent implements OnInit {
 
   async add(name: string) {
     this.devices = await this.api.addDevice(name);
+    this.name = "";
+    this.showNameField = false;
     this.cdr.markForCheck();
   }
 }
