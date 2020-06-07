@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import Ride from "./models/ride";
+import Device from "./models/device";
 
 @Injectable({
   providedIn: "root",
@@ -18,16 +19,17 @@ export class ApiService {
     return this.http.get(`${this.BASE_URL}/rides/${id}/data`, { responseType: "text" }).toPromise();
   }
 
-  async getDevices() {
-    return this.http.get(`${this.BASE_URL}/devices`).toPromise();
+
+  async getDevices(): Promise<Array<Device>> {
+    return this.http.get(`${this.BASE_URL}/devices`).toPromise() as Promise<Array<Device>>;
   }
 
   async addDevice(name: string, key: string) {
     return this.http.post(`${this.BASE_URL}/devices`, { name, key }).toPromise();
   }
 
-  async deleteDevice(id: string) {
-    return this.http.delete(`${this.BASE_URL}/devices/${id}`).toPromise();
+  async deleteDevice(id: string): Promise<Array<Device>> {
+    return this.http.delete(`${this.BASE_URL}/devices/${id}`).toPromise() as Promise<Array<Device>>;
   }
 
   async uploadRideGpx(file: File) {

@@ -3,6 +3,7 @@ import { AuthService } from "./auth.service";
 import { RideSheetComponent } from "./ride-sheet/ride-sheet.component";
 import { MatBottomSheet } from "@angular/material/bottom-sheet";
 import { UploadSheetComponent } from "./upload-sheet/upload-sheet.component";
+import { DevicesComponent } from "./devices/devices.component";
 
 @Component({
   selector: "app-root",
@@ -23,6 +24,10 @@ export class AppComponent {
 
   openUploadSheet(): void {
     this._bottomSheet.open(UploadSheetComponent);
+  }
+
+  openDevicesSheet(): void {
+    this._bottomSheet.open(DevicesComponent);
   }
 
   ngOnInit() {

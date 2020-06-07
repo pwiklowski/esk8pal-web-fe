@@ -1,0 +1,23 @@
+<mat-nav-list>
+  <mat-spinner *ngIf="!devices"></mat-spinner>
+  <div mat-line>
+    <button mat-icon-button color="warn">
+      <mat-icon>add</mat-icon>
+    </button>
+    <div mat-subheader>Devices</div>
+  </div>
+  <mat-list-item *ngFor="let device of devices">
+    <mat-icon mat-list-icon>bike_scooter</mat-icon>
+    <div mat-line>
+      {{ device.name }}
+    </div>
+    <div mat-line>
+      {{ device.key }}
+    </div>
+    <button mat-icon-button color="warn" (click)="delete(device._id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>

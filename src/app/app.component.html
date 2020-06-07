@@ -6,6 +6,9 @@
   <app-map></app-map>
 
   <div class="buttons">
+    <button mat-fab color="primary" [matTooltipPosition]="'left'" matTooltip="Click to show devices" (click)="openDevicesSheet()">
+      <mat-icon>bike_scooter</mat-icon>
+    </button>
     <button mat-fab color="primary" [matTooltipPosition]="'left'" matTooltip="Click to upload new ride" (click)="openUploadSheet()">
       <mat-icon>cloud_upload</mat-icon>
     </button>

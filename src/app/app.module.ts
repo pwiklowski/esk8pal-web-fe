@@ -18,9 +18,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatIconModule } from "@angular/material/icon";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { DevicesComponent } from './devices/devices.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RideSheetComponent, UploadSheetComponent, MapComponent],
+  declarations: [AppComponent, LoginComponent, RideSheetComponent, UploadSheetComponent, MapComponent, DevicesComponent],
   entryComponents: [RideSheetComponent],
   imports: [
     BrowserModule,
