@@ -17,8 +17,10 @@ import { MapComponent } from "./map/map.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatIconModule } from "@angular/material/icon";
-import { MatGridListModule } from "@angular/material/grid-list";
-import { DevicesComponent } from './devices/devices.component';
+import { DevicesComponent } from "./devices/devices.component";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RideSheetComponent, UploadSheetComponent, MapComponent, DevicesComponent],
@@ -36,6 +38,9 @@ import { DevicesComponent } from './devices/devices.component';
     MatTooltipModule,
     MatIconModule,
     MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
   ],
   providers: [
     {

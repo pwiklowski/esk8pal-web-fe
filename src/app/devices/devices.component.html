@@ -1,10 +1,16 @@
 <mat-nav-list>
   <mat-spinner *ngIf="!devices"></mat-spinner>
   <div mat-line>
-    <button mat-icon-button color="warn">
+    <div mat-subheader>Devices</div>
+  </div>
+  <div mat-line>
+    <mat-form-field *ngIf="showNameField">
+      <mat-label>Device name</mat-label>
+      <input matInput placeholder="Name" [(ngModel)]="name" />
+    </mat-form-field>
+    <button mat-icon-button color="warn" (click)="showNameField ? add(name) : (showNameField = true)">
       <mat-icon>add</mat-icon>
     </button>
-    <div mat-subheader>Devices</div>
   </div>
   <mat-list-item *ngFor="let device of devices">
     <mat-icon mat-list-icon>bike_scooter</mat-icon>
