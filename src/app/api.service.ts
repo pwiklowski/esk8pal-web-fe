@@ -18,6 +18,18 @@ export class ApiService {
     return this.http.get(`${this.BASE_URL}/rides/${id}/data`, { responseType: "text" }).toPromise();
   }
 
+  async getDevices() {
+    return this.http.get(`${this.BASE_URL}/devices`).toPromise();
+  }
+
+  async addDevice(name: string, key: string) {
+    return this.http.post(`${this.BASE_URL}/devices`, { name, key }).toPromise();
+  }
+
+  async deleteDevice(id: string) {
+    return this.http.delete(`${this.BASE_URL}/devices/${id}`).toPromise();
+  }
+
   async uploadRideGpx(file: File) {
     let data: FormData = new FormData();
     data.append("logfile", file, file.name);
