@@ -24,8 +24,8 @@ export class ApiService {
     return this.http.get(`${this.BASE_URL}/devices`).toPromise() as Promise<Array<Device>>;
   }
 
-  async addDevice(name: string, key: string): Promise<Array<Device>> {
-    return this.http.post(`${this.BASE_URL}/devices`, { name, key }).toPromise() as Promise<Array<Device>>;
+  async addDevice(name: string): Promise<Array<Device>> {
+    return this.http.post(`${this.BASE_URL}/devices`, { name }).toPromise() as Promise<Array<Device>>;
   }
 
   async deleteDevice(id: string): Promise<Array<Device>> {

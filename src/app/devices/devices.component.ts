@@ -24,8 +24,7 @@ export class DevicesComponent implements OnInit {
   }
 
   async add(name: string) {
-    const key = Math.random().toString(36).substring(3);
-    this.devices = await this.api.addDevice(name, key);
+    this.devices = await this.api.addDevice(name);
     this.cdr.markForCheck();
   }
 }
