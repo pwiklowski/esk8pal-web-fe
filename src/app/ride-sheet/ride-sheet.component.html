@@ -6,8 +6,12 @@
     <mat-icon mat-list-icon>show_chart</mat-icon>
     <h1 mat-line>{{ ride.fileName }}</h1>
     <div class="details" mat-line>
+      <div class="item">Uploaded: {{ ride.uploaded }}</div>
+      <div class="item">Device: {{ ride.deviceId }}</div>
+    </div>
+    <div class="details" mat-line>
       <div class="item">Start: {{ ride.metaData.start }}</div>
-      <div class="item">Time: {{ ride.metaData.tripTime / 1000 }}</div>
+      <div class="item">Trip duration: {{ ride.metaData.tripTime / 1000 }}</div>
     </div>
     <div class="details" mat-line>
       <div class="item">Distance: {{ ride.metaData.tripDistance }}</div>
