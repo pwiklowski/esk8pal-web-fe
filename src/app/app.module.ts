@@ -21,6 +21,8 @@ import { DevicesComponent } from "./devices/devices.component";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
+import { MatSelectModule } from "@angular/material/select";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RideSheetComponent, UploadSheetComponent, MapComponent, DevicesComponent],
@@ -41,6 +43,8 @@ import { FormsModule } from "@angular/forms";
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    MatSelectModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

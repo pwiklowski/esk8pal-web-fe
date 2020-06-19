@@ -32,15 +32,15 @@ export class ApiService {
     return this.http.delete(`${this.BASE_URL}/devices/${id}`).toPromise() as Promise<Array<Device>>;
   }
 
-  async uploadRideGpx(file: File) {
+  async uploadRideGpx(deviceId: string, file: File) {
     let data: FormData = new FormData();
     data.append("logfile", file, file.name);
-    return this.http.post(`${this.BASE_URL}/gpx`, data).toPromise();
+    return this.http.post(`${this.BASE_URL}/${deviceId}/gpx`, data).toPromise();
   }
 
-  async uploadRideCsv(file: File) {
+  async uploadRideCsv(deviceId: string, file: File) {
     let data: FormData = new FormData();
     data.append("logfile", file, file.name);
-    return this.http.post(`${this.BASE_URL}/csv`, data).toPromise();
+    return this.http.post(`${this.BASE_URL}/${deviceId}/csv`, data).toPromise();
   }
 }

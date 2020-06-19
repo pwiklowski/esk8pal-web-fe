@@ -2,5 +2,12 @@
   Upload your GPX file
 </div>
 <input type="file" (change)="filesToUploadChanged($event)" />
+<mat-form-field>
+  <mat-label>Devices</mat-label>
+  <mat-select [formControl]="deviceId">
+    <mat-option *ngFor="let device of devices" [value]="device._id">{{ device.name }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
 <button (click)="uploadGpx()">Upload GPX</button>
 <button (click)="uploadCsv()">Upload CSV</button>
