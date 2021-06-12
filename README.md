@@ -1,8 +1,8 @@
 # Esk8pal
 
-![Alt text](/screen1.png "")
+![Alt text](/screen1.jpg "")
 
-![Alt text](/screen2.png "")
+![Alt text](/screen2.jpg "")
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
