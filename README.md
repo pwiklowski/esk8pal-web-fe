@@ -1,9 +1,12 @@
 # Esk8pal
 
-![Alt text](/screen1.jpg "")
+## Updload GPX or CSV file
 
-![Alt text](/screen2.jpg "")
+![Alt text](/screen1.jpg)
 
+## List of uploaded traces
+
+![Alt text](/screen2.jpg)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
