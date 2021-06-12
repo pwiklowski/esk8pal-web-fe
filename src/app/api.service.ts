@@ -7,7 +7,7 @@ import Device from "./models/device";
   providedIn: "root",
 })
 export class ApiService {
-  BASE_URL = "http://localhost:4200/api";
+  BASE_URL = "/api";
 
   constructor(private http: HttpClient) {}
 
