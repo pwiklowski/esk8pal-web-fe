@@ -1,12 +1,20 @@
 # Esk8pal
 
-## Updload GPX or CSV file
+This repository contains frontend application for esk8pal. For other repositories from esk8pal project go to:
 
-![Alt text](/screen1.jpg)
+- Backend service - https://github.com/pwiklowski/esk8pal-web-be
+- Power module PCB - https://github.com/pwiklowski/esk8pal-power-module
+- ESP32 Firmware - https://github.com/pwiklowski/esk8pal-device
+- PWA companion application that uses Web Bluetooth API (WIP)- https://github.com/pwiklowski/esk8pal-pwa
+- Android application - https://github.com/pwiklowski/esk8pal-android
+
+## Upload GPX or CSV file
+
+![Alt text](screen1.jpg)
 
 ## List of uploaded traces
 
-![Alt text](/screen2.jpg)
+![Alt text](screen2.jpg)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
